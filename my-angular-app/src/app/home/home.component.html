@@ -1,0 +1,14 @@
+<app-contact-form
+  (onSubmitEvent)="handleSubmit($event)"
+  [contact]="current"
+  [action]="action"
+  (onUpdateEvent)="handleUpdate($event)"
+>
+</app-contact-form>
+
+<app-contact-list
+  [contacts]="myContacts"
+  (onEditEvent)="handleEdit($event)"
+  (onDeleteEvent)="handleDelete($event)"
+>
+</app-contact-list>

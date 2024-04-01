@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="card mb-4 rounded-3">
+    <div class="card-body">
+      <form [formGroup]="ContactForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="contactName" class="formGroup">Name</label><br />
+          <input
+            type="text"
+            id="contactName"
+            class="form-control"
+            formControlName="name"
+            placeholder="Your Name"
+          />
+        </div>
+        <div
+          *ngIf="
+            ContactForm.controls['name'].invalid &&
+            (ContactForm.controls['name'].dirty ||
+              ContactForm.controls['name'].touched)
+          "
+        >
+          <small
+            *ngIf="ContactForm.controls['name'].errors.required"
+            class="text-danger"
+            >Name is required</small
+          >
+        </div>
+        <div>
+          <pre></pre>
+          <label for="contactEmail" class="formGroup">Email</label><br />
+          <input
+            type="text"
+            id="contactEmail"
+            class="form-control"
+            formControlName="email"
+            placeholder="Your Email"
+          />
+        </div>
+        <div
+          *ngIf="
+            ContactForm.controls['email'].invalid &&
+            (ContactForm.controls['email'].dirty ||
+              ContactForm.controls['email'].touched)
+          "
+        >
+          <small
+            *ngIf="ContactForm.controls['email'].errors.required"
+            class="text-danger"
+            >Email is required</small
+          >
+          <br />
+        </div>
+        <div>
+          <pre></pre>
+          <label for="contactContact" class="formGroup">Contact</label><br />
+          <input
+            type="text"
+            id="contactContact"
+            class="form-control"
+            formControlName="contact"
+            placeholder="Your Contact"
+          />
+        </div>
+        <div
+          *ngIf="
+            ContactForm.controls['contact'].invalid &&
+            (ContactForm.controls['contact'].dirty ||
+              ContactForm.controls['contact'].touched)
+          "
+        >
+          <small
+            *ngIf="ContactForm.controls['contact'].errors.required"
+            class="text-danger"
+            >Contact is required</small
+          >
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary mx-1">
+          {{ action == "add" ? "Add" : "Update" }} Contact
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
